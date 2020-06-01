@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title >HOME</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card
+    (click)="loadDetails( currentCard )"
+    *ngFor="let currentCard of _dataCards">
+    <img src="assets/imgs/{{ currentCard.image}} " class="usuario">
+    <ion-card-content>
+      <div class="ion-text-center">
+        <ion-card-title>{{currentCard.title}}</ion-card-title>
+        <p>{{currentCard.descripcion}}</p>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+
+<!--Alta de registros-->  
+    <form [formGroup]="todo" (ngSubmit)="CreateRegister()" novalidate>
+      <ion-item>
+        <ion-label>Fc:m</ion-label>
+        <ion-textarea formControlName="frecuencia" placeholder="Inserta frecuencia"></ion-textarea>
+      </ion-item>
+        <ion-item *ngIf="todo.get('frecuencia').errors && todo.get('frecuencia').dirty">
+        <p color="danger" ion-text *ngIf="todo.get('frecuencia').hasError('required')">Campo es requerido</p>
+        <p color="danger" ion-text *ngIf="todo.get('frecuencia').hasError('minlength')">Mínimo 2 dígitos</p>
+        <p color="danger" ion-text *ngIf="todo.get('frecuencia').hasError('maxlength')">Máximo 3 dígitos</p>
+      </ion-item>
+      <ion-item>
+        <ion-label> T(C°): </ion-label>
+        <ion-textarea formControlName="temperatura" placeholder="Inserta temperatura"></ion-textarea>
+      </ion-item>
+        <ion-item *ngIf="todo.get('temperatura').errors && todo.get('temperatura').dirty">
+        <p color="danger" ion-text *ngIf="todo.get('temperatura').hasError('required')">Campo es requerido</p>
+        <p color="danger" ion-text *ngIf="todo.get('temperatura').hasError('minlength')">Mínimo 2 dígitos</p>
+        <p color="danger" ion-text *ngIf="todo.get('temperatura').hasError('maxlength')">Máximo 2 dígitos</p>
+      </ion-item>
+      <ion-item>
+        <ion-label> SpO2: </ion-label>
+        <ion-textarea formControlName="saturacion" placeholder="Inserta saturación"></ion-textarea>
+      </ion-item>
+        <ion-item *ngIf="todo.get('saturacion').errors && todo.get('saturacion').dirty">
+        <p color="danger" ion-text *ngIf="todo.get('saturacion').hasError('required')">Campo es requerido</p>
+        <p color="danger" ion-text *ngIf="todo.get('saturacion').hasError('minlength')">Mínimo 2 dígitos</p>
+        <p color="danger" ion-text *ngIf="todo.get('saturacion').hasError('maxlength')">Máximo 2 dígitos</p>
+      </ion-item>
+      <ion-item>
+        <ion-label> PA: </ion-label>
+        <ion-textarea formControlName="presion" placeholder="Inserta Presión"></ion-textarea>
+      </ion-item>
+        <ion-item *ngIf="todo.get('presion').errors && todo.get('presion').dirty">
+        <p color="danger" ion-text *ngIf="todo.get('presion').hasError('required')">Campo es requerido</p>
+        <p color="danger" ion-text *ngIf="todo.get('presion').hasError('minlength')">Mínimo 5 dígitos</p>
+        <p color="danger" ion-text *ngIf="todo.get('presion').hasError('maxlength')">Máximo 6 dígitos</p>
+      </ion-item>
+      <button ion-button block type="submit" [disabled]="!todo.valid">REGISTRAR</button>
+    </form>
+
+</ion-content>

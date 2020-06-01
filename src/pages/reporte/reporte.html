@@ -1,0 +1,62 @@
+
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>REPORTE</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+	<ion-card>
+
+		<ion-card-content>
+			<ion-card-title></ion-card-title>
+			<p>Reporte de la información del paciente.</p>
+
+		</ion-card-content>
+	</ion-card>
+
+	<button ion-button block (click)="GetAllRegister();"> Ver Registros </button>
+	<!--
+	<ion-card
+		(click)="loadDetails( currentVideo )"
+		*ngFor="let currentVideo of _dataVideo">
+		<img src="assets/imgs/{{ currentVideo.image }}">
+		<ion-card-content>
+			<ion-card-title>{{currentVideo.title}}</ion-card-title>
+			<p>{{currentVideo.descripcion}}</p>
+		</ion-card-content>
+	</ion-card>
+	-->
+
+	<!--Lista de registros que se muestra-->
+    <ion-list>
+      <ion-item-sliding
+        *ngFor="let item of ListRegister">
+        <ion-item>
+          <h2>Registro</h2>
+          <p>Fc:{{item.frecuencia}} T(c):{{item.temperatura}} Sp02:{{item.saturacion}}  PA:{{item.presion}}
+        </ion-item>
+        <!--
+        <ion-item-options slide="left">
+          <button ion-button color="primary">
+            <ion-icon name="text"></ion-icon>
+            Text
+          </button>
+          <button ion-button color="secondary">
+            <ion-icon name="call"></ion-icon>
+            Call
+          </button>
+        </ion-item-options>-->
+        <!--
+        <ion-item-options slide="right">
+          <button ion-button color="danger" (click)="DeleteRegister(item.id)">
+            <ion-icon name="Eliminar"></ion-icon>
+            Email
+          </button>
+        </ion-item-options>
+      -->
+      </ion-item-sliding>
+    </ion-list>
+
+</ion-content>

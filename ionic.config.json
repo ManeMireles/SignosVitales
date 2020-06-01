@@ -1,0 +1,7 @@
+{
+  "name": "SIGNOS_VITALES",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

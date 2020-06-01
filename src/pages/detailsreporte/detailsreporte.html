@@ -1,0 +1,17 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ _currentDetails.title | uppercase }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+		<video poster="assets/imgs/{{ _currentDetails.image }}" 
+			controls>
+			<source src="assets/videos/{{ _currentDetails.video }}" type="video/mp4">
+		</video>
+		<h1> {{ currentDetail.title }}</h1>
+		<p>{{ _currentDetails.especificacion  }}</p> 
+
+</ion-content>
