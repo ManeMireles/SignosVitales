@@ -31,7 +31,7 @@ export class HomePage {
       this._detailshome = DetailshomePage;
 
   	   this._dataCards = [
-  	   {title:"Paciente", image: "Usuario.png", descripcion: "Informacion general del paciente", especificacion: "Información más detallada del paciente"}
+  	   {title:"Paciente", image: "Usuario.png", descripcion: "Informacion general del paciente.", especificacion: "Información más detallada del paciente"}
 	     ];
 
       this.todo = this.formBuilder.group({
